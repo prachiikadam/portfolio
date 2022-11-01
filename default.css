@@ -6,7 +6,8 @@
     --mainText: black;
     --secondaryText:#4b5156;
     --themeDotBorder:#24292e;
-    --previewBg:rgb(251,249,243,0.8)
+    --previewBg: rgb(220, 220, 246);
+    --previewShadow:rgb(117, 117, 150);
 }
 
 html,body{
@@ -121,15 +122,23 @@ p,li,span,label,input,textarea{
 }
 .right-column{
     grid-area: right-column;
-    
+    display: grid;
+    align-content: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
-
-#preview{
+#preview-shadow{
+    background-color: var(--previewShadow);
     width: 300px;
-    border: 1.5px solid black;
+    height: 150px;
+    padding-left: 30px;
+    padding-top: 30px;
+}
+#preview{
+    width: 330px;
+    border: 1.5px solid #17a2b8;
     background-color: var(--previewBg);
-    padding: 15px;
-
+    
 }
 #profile-pic{
     display: block;
@@ -175,6 +184,65 @@ p,li,span,label,input,textarea{
     font-style: italic;
     text-align: center;
 }
+.corner{
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    border: 1.5px solid #17a2b8;
+    background-color: #fff;
+}
+
+.about-wrapper{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+    padding-top: 50px;
+    padding-bottom: 50px;
+    gap: 5em;
+}
+
+#skills{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: var(--previewShadow);
+}
+
+.social-links{
+    display: grid;
+    align-content: center;
+    text-align: center;
+}
+#social-img{
+    width: 100%;
+   height: 270px;
+}
+
+.post-wrapper{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+    gap: 20px;
+    justify-content: center;
+}
+.post{
+    border: 1px solid var(--borderColor);
+}
+.post-preview{
+    background-color: #fff;
+    padding: 15px;
+}
+.post-title{
+    color: black;  
+    margin: 0;
+}
+.post-intro{
+    color: #4b5156;
+    font-size: 14px;
+}
+.post-image{
+    display: block;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
 
 @media screen and (max-width:1200px) {
     .main-container{
@@ -182,3 +250,18 @@ p,li,span,label,input,textarea{
     }
     
 }
+
+@media screen and (max-width:800px) {
+    .intro-wrapper{
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            'nav-wrapper'
+            'left-column'
+            'right-column';
+        
+    }
+    .right-column{
+        justify-content: center;
+    }
+}
+
